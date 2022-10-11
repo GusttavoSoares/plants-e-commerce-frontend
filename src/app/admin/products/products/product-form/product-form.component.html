@@ -13,16 +13,22 @@
           <textarea matInput></textarea>
         </mat-form-field>
 
-        <mat-label>Quantity</mat-label>
-        <mat-form-field appearance="fill">
-          <input matInput>
+        <div class="container-row">
+          <div class="item-row">
+        <mat-label >Quantity</mat-label>
+        <mat-form-field appearance="fill" class="item-row">
+          <input matInput type="number">
         </mat-form-field>
+          </div>
 
+       <div class="item-row">
         <mat-label>Price</mat-label>
-        <mat-form-field appearance="fill" floatLabel="always">
-          <input matInput type="number" class="example-right-align">
+        <mat-form-field appearance="fill" floatLabel="always" class="item-row">
+          <input matInput type="number">
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
+        </div>
+       </div>
 
        <mat-label>Type</mat-label>
         <mat-form-field appearance="fill">
@@ -60,4 +66,3 @@
     </div>
   </form>
 </div>
-

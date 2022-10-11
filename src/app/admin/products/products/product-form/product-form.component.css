@@ -1,8 +1,8 @@
-
 .container {
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-direction: row;
 }
 
 form {
@@ -12,6 +12,16 @@ form {
 
 .item {
   margin: 1rem;
+}
+
+.container-row {
+  display: flex;
+  gap: 6rem;
+}
+
+.item-row {
+  width: 12rem;
+  display: inline;
 }
 
 mat-label {
@@ -92,7 +102,3 @@ textarea {
   .line:nth-child(2) {
     transform: translate(-50%, -50%) rotate(90deg);
   }
-
-
-
-
