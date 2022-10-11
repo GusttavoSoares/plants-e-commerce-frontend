@@ -17,6 +17,8 @@ form {
 
 mat-label {
   display: block;
+  font-size: 18px;
+  margin-bottom: 0.2rem;
 }
 
 .align-center {
@@ -36,11 +38,15 @@ textarea {
   resize: none;
 }
 
-/*::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {*/
-/*  transform: translateY(-1.1em) scale(.75);*/
-/*  width: 133.33333%;*/
-/*}*/
+.buttons {
+  float: right;
+}
 
+.buttons button {
+  margin: 20px;
+  padding: 10px 30px;
+  font-size: 16px;
+}
 input[type="file"] {
   position: absolute;
   width: 1px;
