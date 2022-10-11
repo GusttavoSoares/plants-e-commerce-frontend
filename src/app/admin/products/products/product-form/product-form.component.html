@@ -1,44 +1,57 @@
-<form xmlns="http://www.w3.org/1999/html">
+<div class="align-center">
+  <form>
+    <div class="container">
+      <div class="item">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" required />
+        </div>
 
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input type="file" />
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" required />
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" required />
+        </div>
+
+        <label for="type">Type</label>
+
+        <select name="type">
+          <option value="bushes">Bushes</option>
+          <option value="climbers">Climbers</option>
+          <option value="fern">Fern</option>
+          <option value="fruit_trees">Fruit Trees</option>
+          <option value="orchids">Orchids</option>
+          <option value="juicy">Juicy</option>
+          <option value="landscaping">Landscaping</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" />
+        </div>
+      </div>
+    </div>
+    <!-- TODO - Add color --->
+    <button mat-raised-button color="">Cancel</button>
+    <button mat-raised-button color="">Save</button>
+    <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
+
+
+  </form>
+
+  <div class="container-test">
+    <div class="square1"></div>
+    <div class="square2"></div>
   </div>
-
-  <div class="form-group">
-    <label for="name">Nome</label>
-    <input type="text" required />
-  </div>
-
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea name="description" required></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="quantity">Quantity</label>
-    <input type="number" required />
-  </div>
-
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input type="number" required />
-  </div>
-
-  <label for="cars">Choose a car:</label>
-
-  <select name="type">
-    <option value="bushes">Bushes</option>
-    <option value="climbers">Climbers</option>
-    <option value="fern">Fern</option>
-    <option value="fruit_trees">Fruit Trees</option>
-    <option value="orchids">Orchids</option>
-    <option value="juicy">Juicy</option>
-    <option value="landscaping">Landscaping</option>
-  </select>
-
-  <!-- TODO - Add color --->
-  <button mat-raised-button color="">Cancel</button>
-  <button mat-raised-button color="">Save</button>
-<!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
-</form>
+</div>
