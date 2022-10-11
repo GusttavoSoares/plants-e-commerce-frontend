@@ -2,7 +2,6 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -47,21 +46,53 @@ textarea {
   padding: 10px 30px;
   font-size: 16px;
 }
-input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+/*input[type="file"] {*/
+/*  position: absolute;*/
+/*  width: 1px;*/
+/*  height: 1px;*/
+/*  padding: 0;*/
+/*  margin: -1px;*/
+/*  overflow: hidden;*/
+/*  clip: rect(0,0,0,0);*/
+/*  border: 0;*/
+/*}*/
+
+#display_image {
+  background-color: rgba(0,0,0,.04);
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
+
+.form-group-image {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  vertical-align: center;
+}
+
+/* TODO - Apply hover effect */
+.add-image {
+  transform: translate(-50%, -50%);
   cursor: pointer;
 }
+  .line {
+    width: 30px;
+    height: 2px;
+    background-color: #B3B3B3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  .line:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+
 
 
