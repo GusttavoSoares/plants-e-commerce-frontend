@@ -1,12 +1,21 @@
+
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form {
+  height: 100%;
+  justify-content: center;
 }
 
 .item {
   margin: 1rem;
 }
 
-label {
+mat-label {
   display: block;
 }
 
@@ -18,20 +27,35 @@ label {
   transform: translate(-50%, -50%);
 }
 
-input {
-  width: 40rem;
-  height: 2.5rem;
-  margin: 0.25rem 0 2rem 0;
-}
-
-select {
-  width: 25rem;
-  height: 2.5rem;
+mat-form-field {
+  width: 30rem;
 }
 
 textarea {
-  width: 40rem;
-  height: 10rem;
+  height: 12rem;
+  resize: none;
+}
+
+/*::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {*/
+/*  transform: translateY(-1.1em) scale(.75);*/
+/*  width: 133.33333%;*/
+/*}*/
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+.file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 

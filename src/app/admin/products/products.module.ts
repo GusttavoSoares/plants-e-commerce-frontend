@@ -7,7 +7,8 @@ import { ProductFormComponent } from './products/product-form/product-form.compo
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { MatButtonModule } from '@angular/material/button';
     ProductsRoutingModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatGridListModule
   ]
 })
 export class ProductsModule { }

@@ -2,37 +2,41 @@
   <form>
     <div class="container">
       <div class="item">
-        <div class="form-group">
-          <label for="name">Nome</label>
-          <input type="text" required />
-        </div>
 
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea name="description" required></textarea>
-        </div>
+        <mat-label>Name</mat-label>
+        <mat-form-field appearance="fill">
+          <input matInput>
+        </mat-form-field>
 
-        <div class="form-group">
-          <label for="quantity">Quantity</label>
-          <input type="number" required />
-        </div>
+        <mat-label>Description</mat-label>
+        <mat-form-field appearance="fill">
+          <textarea matInput></textarea>
+        </mat-form-field>
 
-        <div class="form-group">
-          <label for="price">Price</label>
-          <input type="number" required />
-        </div>
+        <mat-label>Quantity</mat-label>
+        <mat-form-field appearance="fill">
+          <input matInput>
+        </mat-form-field>
 
-        <label for="type">Type</label>
+        <mat-label>Price</mat-label>
+        <mat-form-field appearance="fill" floatLabel="always">
+          <input matInput type="number" class="example-right-align">
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
 
-        <select name="type">
-          <option value="bushes">Bushes</option>
-          <option value="climbers">Climbers</option>
-          <option value="fern">Fern</option>
-          <option value="fruit_trees">Fruit Trees</option>
-          <option value="orchids">Orchids</option>
-          <option value="juicy">Juicy</option>
-          <option value="landscaping">Landscaping</option>
-        </select>
+       <mat-label>Type</mat-label>
+        <mat-form-field appearance="fill">
+          <mat-select>
+            <mat-option value="bushes">Bushes</mat-option>
+            <mat-option value="climbers">Climbers</mat-option>
+            <mat-option value="fern">Fern</mat-option>
+            <mat-option value="fruit_trees">Fruit Trees</mat-option>
+            <mat-option value="orchids">Orchids</mat-option>
+            <mat-option value="juicy">Juicy</mat-option>
+            <mat-option value="landscaping">Landscaping</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="item">
@@ -42,16 +46,12 @@
         </div>
       </div>
     </div>
+
     <!-- TODO - Add color --->
     <button mat-raised-button color="">Cancel</button>
     <button mat-raised-button color="">Save</button>
     <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
 
-
   </form>
-
-  <div class="container-test">
-    <div class="square1"></div>
-    <div class="square2"></div>
-  </div>
 </div>
+
