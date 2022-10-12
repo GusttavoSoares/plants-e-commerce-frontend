@@ -4,6 +4,7 @@ import { ProductType } from "../../../../core/models/product-type.model";
 import { ProductService } from "../../../../core/services/product.service";
 import { first } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
+import {CustomValidations} from "../../../../core/validators/custom-validations";
 
 @Component({
   selector: 'app-product-form',
@@ -29,8 +30,8 @@ export class ProductFormComponent implements OnInit {
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
-      description: ['', [Validators.required, Validators.minLength(30), Validators.maxLength(5000)]],
+      name: ['', [Validators.required, CustomValidations.notBlank, Validators.minLength(5), Validators.maxLength(60)]],
+      description: ['', [Validators.required, CustomValidations.notBlank, Validators.minLength(30), Validators.maxLength(5000)]],
       quantity: ['', [Validators.required, Validators.min(1), Validators.max(9999)]],
       price: ['', [Validators.required, Validators.min(0.1), Validators.max(9999)]],
       type: ['', [Validators.required]]
