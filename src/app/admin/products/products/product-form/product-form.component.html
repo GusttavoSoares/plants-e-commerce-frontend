@@ -5,8 +5,7 @@
 
         <mat-label>Name</mat-label>
         <mat-form-field appearance="fill">
-          <input matInput formControlName="name" name="name" required>
-          <mat-error *ngIf="fieldErrors('name')?.['required']">Name must contain a value</mat-error>
+          <input matInput formControlName="name" name="name">
           <mat-error *ngIf="fieldErrors('name')?.['notblank']">Name cannot be empty</mat-error> <!-- TODO - add validation -->
           <mat-error *ngIf="fieldErrors('name')?.['minlength']">Name must contain at least 5 characters</mat-error>
           <mat-error *ngIf="fieldErrors('name')?.['maxlength']">Name must contain a maximum of 60 characters</mat-error>
@@ -15,7 +14,6 @@
         <mat-label>Description</mat-label>
         <mat-form-field appearance="fill">
           <textarea matInput formControlName="description" name="description"></textarea>
-          <mat-error *ngIf="fieldErrors('description')?.['required']">Description must contain a value</mat-error>
           <mat-error *ngIf="fieldErrors('description')?.['notblank']">Description cannot be empty</mat-error> <!-- TODO - add validation -->
           <mat-error *ngIf="fieldErrors('description')?.['minlength']">Description must contain at least 30 characters</mat-error>
           <mat-error *ngIf="fieldErrors('description')?.['maxlength']">Description must contain a maximum of 5.000 characters</mat-error>
