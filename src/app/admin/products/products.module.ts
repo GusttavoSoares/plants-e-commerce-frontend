@@ -9,6 +9,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,14 +17,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ProductsComponent,
     ProductFormComponent
   ],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatInputModule,
-    MatGridListModule
-  ]
+    imports: [
+        CommonModule,
+        ProductsRoutingModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatInputModule,
+        MatGridListModule,
+        ReactiveFormsModule
+    ]
 })
 export class ProductsModule { }

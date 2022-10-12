@@ -15,7 +15,13 @@ export class ProductCreateDto {
   quantity: number | undefined;
   price: number | undefined;
   type: ProductType | undefined;
+  // TODO - add image
 
   constructor(name: string, description: string, quantity: number, price: number, type: ProductType) {
+    this.name = name;
+    this.description = description;
+    this.quantity = quantity;
+    this.price = price;
+    this.type = type;
   }
 }
