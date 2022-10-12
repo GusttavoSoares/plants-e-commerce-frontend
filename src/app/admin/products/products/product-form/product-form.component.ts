@@ -30,10 +30,10 @@ export class ProductFormComponent implements OnInit {
   buildForm(): FormGroup {
     return this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
-      description: [''],
-      quantity: [''],
-      price: [''],
-      type: ['']
+      description: ['', [Validators.required, Validators.minLength(30), Validators.maxLength(5000)]],
+      quantity: ['', [Validators.required, Validators.min(1), Validators.max(9999)]],
+      price: ['', [Validators.required, Validators.min(0.1), Validators.max(9999)]],
+      type: ['', [Validators.required]]
     });
   }
 
