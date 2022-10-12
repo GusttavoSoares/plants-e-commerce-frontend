@@ -5,7 +5,11 @@
 
         <mat-label>Name</mat-label>
         <mat-form-field appearance="fill">
-          <input matInput formControlName="name" name="name">
+          <input matInput formControlName="name" name="name" required>
+          <mat-error *ngIf="fieldErrors('name')?.['required']">Name must contain a value</mat-error>
+          <mat-error *ngIf="fieldErrors('name')?.['notblank']">Name cannot be empty</mat-error> <!-- TODO - add validation -->
+          <mat-error *ngIf="fieldErrors('name')?.['minlength']">Name must contain at least 5 characters</mat-error>
+          <mat-error *ngIf="fieldErrors('name')?.['maxlength']">Name must contain a maximum of 60 characters</mat-error>
         </mat-form-field>
 
         <mat-label>Description</mat-label>
@@ -15,22 +19,22 @@
 
         <div class="container-row">
           <div class="item-row">
-        <mat-label >Quantity</mat-label>
-        <mat-form-field appearance="fill" class="item-row">
-          <input matInput type="number" formControlName="quantity" name="quantity">
-        </mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <mat-form-field appearance="fill" class="item-row">
+              <input matInput type="number" formControlName="quantity" name="quantity">
+            </mat-form-field>
           </div>
 
-       <div class="item-row">
-        <mat-label>Price</mat-label>
-        <mat-form-field appearance="fill" floatLabel="always" class="item-row">
-          <input matInput type="number" formControlName="price" name="price">
-          <span matPrefix>$&nbsp;</span>
-        </mat-form-field>
+          <div class="item-row">
+            <mat-label>Price</mat-label>
+            <mat-form-field appearance="fill" floatLabel="always" class="item-row">
+              <input matInput type="number" formControlName="price" name="price">
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+          </div>
         </div>
-       </div>
 
-       <mat-label>Type</mat-label>
+        <mat-label>Type</mat-label>
         <mat-form-field appearance="fill">
           <mat-select formControlName="type">
             <mat-option *ngFor="let name of enumKeys" [value]="name">{{ productType[name] }}</mat-option>
@@ -38,25 +42,25 @@
         </mat-form-field>
       </div>
 
-<!--      <div class="item">-->
-<!--        <div class="form-group">-->
-<!--          <label for="image">Image</label>-->
-<!--          <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
-<!--          <div id="display_image">-->
-<!--          <div class="add-image center">-->
-<!--            <div class="line"></div>-->
-<!--            <div class="line"></div>-->
-<!--          </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="item">-->
+      <!--        <div class="form-group">-->
+      <!--          <label for="image">Image</label>-->
+      <!--          <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
+      <!--          <div id="display_image">-->
+      <!--          <div class="add-image center">-->
+      <!--            <div class="line"></div>-->
+      <!--            <div class="line"></div>-->
+      <!--          </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
 
     <!-- TODO - Add color --->
     <div class="buttons">
-    <button mat-raised-button color="">Cancel</button>
-    <button type="submit" form="product-form" mat-raised-button color="">Save</button>
-    <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
+      <button mat-raised-button color="">Cancel</button>
+      <button type="submit" form="product-form" mat-raised-button color="">Save</button>
+      <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
     </div>
   </form>
 </div>

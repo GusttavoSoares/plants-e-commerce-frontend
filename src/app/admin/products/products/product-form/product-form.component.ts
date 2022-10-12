@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { ProductType } from "../../../../core/models/product-type.model";
 import { ProductService } from "../../../../core/services/product.service";
 import { first } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: 'app-product-form',
@@ -27,30 +28,37 @@ export class ProductFormComponent implements OnInit {
   }
 
   buildForm(): FormGroup {
-  return this.formBuilder.group({
-    name: [''],
-    description: [''],
-    quantity: [''],
-    price: [''],
-    type: ['']
-  });
-}
+    return this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      description: [''],
+      quantity: [''],
+      price: [''],
+      type: ['']
+    });
+  }
 
   onSubmit() {
-  this.submitted = true;
+    this.submitted = true;
 
-  if(this.form.invalid) {
-    return;
+    if (this.form.invalid) {
+      return;
+    }
+    this.createProduct();
   }
-  console.log(this.form.value);
-  this.createProduct();
-}
 
-createProduct() {
-  this.productService.postProduct(this.form.value)
-    .pipe(first())
-    .subscribe({
+  createProduct() {
+    this.productService.postProduct(this.form.value)
+      .pipe(first())
+      .subscribe({})
+  }
 
-    })
-}
+  field(path: string) {
+    return this.form.get(path)!;
+  }
+
+  fieldErrors(path: string) {
+    return this.field(path).errors;
+  }
+
+  // TODO - handle error
 }

@@ -102,3 +102,7 @@ textarea {
   .line:nth-child(2) {
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
+  mat-error {
+    margin-left: -0.57rem;
+  }
