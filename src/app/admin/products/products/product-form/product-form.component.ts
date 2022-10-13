@@ -5,6 +5,7 @@ import { ProductService } from "../../../../core/services/product.service";
 import { first } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import {CustomValidations} from "../../../../core/validators/custom-validations";
+import {Violation} from "../../../../core/models/problem-detail";
 
 @Component({
   selector: 'app-product-form',
@@ -50,7 +51,9 @@ export class ProductFormComponent implements OnInit {
   createProduct() {
     this.productService.postProduct(this.form.value)
       .pipe(first())
-      .subscribe({})
+      .subscribe({
+        error: error => this.handleError(error)
+      });
   }
 
   field(path: string) {
@@ -61,5 +64,22 @@ export class ProductFormComponent implements OnInit {
     return this.field(path).errors;
   }
 
-  // TODO - handle error
+  handleError(err: any) {
+    if (err instanceof HttpErrorResponse) {
+      if (err.status === 400) {
+        const violations: Violation[] = err.error;
+        violations.forEach( violation => {
+          const formControl = this.form.get(violation.name);
+          if (formControl) {
+            formControl.setErrors({ serverError: violation.message })
+          }
+        })
+      }
+
+      if(err.status === 409) {
+        const productName = this.field('name');
+        productName.setErrors({ serverError: `Product already exists with the name ${ productName.value}`})
+      }
+    }
+  }
 }

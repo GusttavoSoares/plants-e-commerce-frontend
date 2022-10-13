@@ -9,6 +9,9 @@
           <mat-error *ngIf="fieldErrors('name')?.['notblank']">Name cannot be empty</mat-error> <!-- TODO - add validation -->
           <mat-error *ngIf="fieldErrors('name')?.['minlength']">Name must contain at least 5 characters</mat-error>
           <mat-error *ngIf="fieldErrors('name')?.['maxlength']">Name must contain a maximum of 60 characters</mat-error>
+          <mat-error *ngIf="fieldErrors('name')?.['serverError'] && submitted">
+            {{ fieldErrors('name')?.['serverError'] }}
+          </mat-error>
         </mat-form-field>
 
         <mat-label>Description</mat-label>
