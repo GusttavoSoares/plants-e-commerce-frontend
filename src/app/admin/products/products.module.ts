@@ -9,8 +9,8 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {ReactiveFormsModule} from "@angular/forms";
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import {ReactiveFormsModule} from "@angular/forms";
         MatButtonModule,
         MatInputModule,
         MatGridListModule,
+        MatDialogModule,
         ReactiveFormsModule
     ]
 })
