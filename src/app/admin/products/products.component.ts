@@ -16,9 +16,6 @@ export class ProductsComponent implements OnInit {
   openProductForm() {
     const dialogRef = this.dialog.open(ProductFormComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
   ngOnInit(): void {

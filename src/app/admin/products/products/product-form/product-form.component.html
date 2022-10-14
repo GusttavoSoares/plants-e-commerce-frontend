@@ -1,80 +1,79 @@
-<div class="align-center">
-  <form id="product-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="container">
-      <div class="item">
+ <form id="product-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <div class="item">
 
-        <mat-label>Name</mat-label>
-        <mat-form-field appearance="fill">
-          <input matInput formControlName="name" name="name">
-          <mat-error *ngIf="fieldErrors('name')?.['notblank']">Name cannot be empty</mat-error> <!-- TODO - add validation -->
-          <mat-error *ngIf="fieldErrors('name')?.['minlength']">Name must contain at least 5 characters</mat-error>
-          <mat-error *ngIf="fieldErrors('name')?.['maxlength']">Name must contain a maximum of 60 characters</mat-error>
-          <mat-error *ngIf="fieldErrors('name')?.['serverError'] && submitted">
-            {{ fieldErrors('name')?.['serverError'] }}
-          </mat-error>
-        </mat-form-field>
+          <mat-label>Name</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput formControlName="name" name="name">
+            <mat-error *ngIf="fieldErrors('name')?.['notblank']">Name cannot be empty</mat-error> <!-- TODO - add validation -->
+            <mat-error *ngIf="fieldErrors('name')?.['minlength']">Name must contain at least 5 characters</mat-error>
+            <mat-error *ngIf="fieldErrors('name')?.['maxlength']">Name must contain a maximum of 60 characters</mat-error>
+            <mat-error *ngIf="fieldErrors('name')?.['serverError'] && submitted">
+              {{ fieldErrors('name')?.['serverError'] }}
+            </mat-error>
+          </mat-form-field>
 
-        <mat-label>Description</mat-label>
-        <mat-form-field appearance="fill">
-          <textarea matInput formControlName="description" name="description"></textarea>
-          <mat-error *ngIf="fieldErrors('description')?.['notblank']">Description cannot be empty</mat-error> <!-- TODO - add validation -->
-          <mat-error *ngIf="fieldErrors('description')?.['minlength']">Description must contain at least 30 characters</mat-error>
-          <mat-error *ngIf="fieldErrors('description')?.['maxlength']">Description must contain a maximum of 5.000 characters</mat-error>
-        </mat-form-field>
+          <mat-label>Description</mat-label>
+          <mat-form-field appearance="fill">
+            <textarea matInput formControlName="description" name="description"></textarea>
+            <mat-error *ngIf="fieldErrors('description')?.['notblank']">Description cannot be empty</mat-error> <!-- TODO - add validation -->
+            <mat-error *ngIf="fieldErrors('description')?.['minlength']">Description must contain at least 30 characters</mat-error>
+            <mat-error *ngIf="fieldErrors('description')?.['maxlength']">Description must contain a maximum of 5.000 characters</mat-error>
+          </mat-form-field>
 
-        <div class="container-row">
-          <div class="item-row">
-            <mat-label>Quantity</mat-label>
-            <mat-form-field appearance="fill" class="item-row">
-              <input matInput type="number" formControlName="quantity" name="quantity">
-              <mat-error *ngIf="fieldErrors('quantity')?.['required']">Quantity must contain a value</mat-error>
-              <mat-error *ngIf="fieldErrors('quantity')?.['notblank']">Quantity cannot be empty</mat-error> <!-- TODO - add validation -->
-              <mat-error *ngIf="fieldErrors('quantity')?.['min']">Quantity must contain at least 1 unity</mat-error>
-              <mat-error *ngIf="fieldErrors('quantity')?.['max']">Quantity must contain a maximum of 9.999 units</mat-error>
-            </mat-form-field>
+          <div class="container-row">
+            <div class="item-row">
+              <mat-label>Quantity</mat-label>
+              <mat-form-field appearance="fill" class="item-row">
+                <input matInput type="number" formControlName="quantity" name="quantity">
+                <mat-error *ngIf="fieldErrors('quantity')?.['required']">Quantity must contain a value</mat-error>
+                <mat-error *ngIf="fieldErrors('quantity')?.['notblank']">Quantity cannot be empty</mat-error> <!-- TODO - add validation -->
+                <mat-error *ngIf="fieldErrors('quantity')?.['min']">Quantity must contain at least 1 unity</mat-error>
+                <mat-error *ngIf="fieldErrors('quantity')?.['max']">Quantity must contain a maximum of 9.999 units</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="item-row">
+              <mat-label>Price</mat-label>
+              <mat-form-field appearance="fill" floatLabel="always" class="item-row">
+                <input matInput type="number" formControlName="price" name="price">
+                <span matPrefix>$&nbsp;</span>
+                <mat-error *ngIf="fieldErrors('price')?.['required']">Price must contain a value</mat-error>
+                <mat-error *ngIf="fieldErrors('price')?.['notblank']">Price cannot be empty</mat-error> <!-- TODO - add validation -->
+                <mat-error *ngIf="fieldErrors('price')?.['min']">Price must be at least 0,1 cents</mat-error>
+                <mat-error *ngIf="fieldErrors('price')?.['max']">Price must be a maximum of 9.999 dollars</mat-error>
+              </mat-form-field>
+            </div>
           </div>
 
-          <div class="item-row">
-            <mat-label>Price</mat-label>
-            <mat-form-field appearance="fill" floatLabel="always" class="item-row">
-              <input matInput type="number" formControlName="price" name="price">
-              <span matPrefix>$&nbsp;</span>
-              <mat-error *ngIf="fieldErrors('price')?.['required']">Price must contain a value</mat-error>
-              <mat-error *ngIf="fieldErrors('price')?.['notblank']">Price cannot be empty</mat-error> <!-- TODO - add validation -->
-              <mat-error *ngIf="fieldErrors('price')?.['min']">Price must be at least 0,1 cents</mat-error>
-              <mat-error *ngIf="fieldErrors('price')?.['max']">Price must be a maximum of 9.999 dollars</mat-error>
-            </mat-form-field>
-          </div>
+          <mat-label>Type</mat-label>
+          <mat-form-field appearance="fill">
+            <mat-select formControlName="type">
+              <mat-option *ngFor="let name of enumKeys" [value]="name">{{ productType[name] }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="fieldErrors('type')?.['required']">Type must contain a value</mat-error>
+          </mat-form-field>
         </div>
 
-        <mat-label>Type</mat-label>
-        <mat-form-field appearance="fill">
-          <mat-select formControlName="type">
-            <mat-option *ngFor="let name of enumKeys" [value]="name">{{ productType[name] }}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="fieldErrors('type')?.['required']">Type must contain a value</mat-error>
-        </mat-form-field>
+        <!--      <div class="item">-->
+        <!--        <div class="form-group">-->
+        <!--          <label for="image">Image</label>-->
+        <!--          <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
+        <!--          <div id="display_image">-->
+        <!--          <div class="add-image center">-->
+        <!--            <div class="line"></div>-->
+        <!--            <div class="line"></div>-->
+        <!--          </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--      </div>-->
       </div>
 
-      <!--      <div class="item">-->
-      <!--        <div class="form-group">-->
-      <!--          <label for="image">Image</label>-->
-      <!--          <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
-      <!--          <div id="display_image">-->
-      <!--          <div class="add-image center">-->
-      <!--            <div class="line"></div>-->
-      <!--            <div class="line"></div>-->
-      <!--          </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
-    </div>
+      <!-- TODO - Add color --->
+      <div class="buttons">
+        <button mat-raised-button color="">Cancel</button>
+        <button type="submit" form="product-form" mat-raised-button color="">Save</button>
+        <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
+      </div>
+    </form>
 
-    <!-- TODO - Add color --->
-    <div class="buttons">
-      <button mat-raised-button color="">Cancel</button>
-      <button type="submit" form="product-form" mat-raised-button color="">Save</button>
-      <!--  <button mat-raised-button color="" type="submit" value="{{ btnText }}">Save</button>-->
-    </div>
-  </form>
-</div>

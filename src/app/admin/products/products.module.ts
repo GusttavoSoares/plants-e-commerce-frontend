@@ -11,22 +11,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from "@angular/forms";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     ProductsComponent,
     ProductFormComponent
   ],
-    imports: [
-        CommonModule,
-        ProductsRoutingModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatButtonModule,
-        MatInputModule,
-        MatGridListModule,
-        MatDialogModule,
-        ReactiveFormsModule
-    ]
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatInputModule,
+    MatGridListModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatToolbarModule
+  ]
 })
 export class ProductsModule { }
