@@ -7,6 +7,7 @@ export interface ProductDto {
   quantity: number;
   price:  number;
   type: ProductType;
+  image: String;
 }
 
 export class ProductCreateDto {
@@ -15,13 +16,14 @@ export class ProductCreateDto {
   quantity: number | undefined;
   price: number | undefined;
   type: ProductType | undefined;
-  // TODO - add image
+  image?: String
 
-  constructor(name: string, description: string, quantity: number, price: number, type: ProductType) {
+  constructor(name: string, description: string, quantity: number, price: number, type: ProductType, image: String) {
     this.name = name;
     this.description = description;
     this.quantity = quantity;
     this.price = price;
     this.type = type;
+    this.image = image;
   }
 }

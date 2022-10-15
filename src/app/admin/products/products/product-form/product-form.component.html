@@ -1,7 +1,6 @@
  <form id="product-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="container">
         <div class="item">
-
           <mat-label>Name</mat-label>
           <mat-form-field appearance="fill">
             <input matInput formControlName="name" name="name">
@@ -55,18 +54,19 @@
           </mat-form-field>
         </div>
 
-        <!--      <div class="item">-->
-        <!--        <div class="form-group">-->
-        <!--          <label for="image">Image</label>-->
-        <!--          <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
-        <!--          <div id="display_image">-->
-        <!--          <div class="add-image center">-->
-        <!--            <div class="line"></div>-->
-        <!--            <div class="line"></div>-->
-        <!--          </div>-->
-        <!--          </div>-->
-        <!--        </div>-->
-        <!--      </div>-->
+              <div class="item">
+                <div class="form-group">
+                  <mat-label>Image</mat-label>
+                  <input type="file" formControlName="image" name="image">
+<!--                  <input type="file" id="image_input" accept="image/png, image/jpg"/> &lt;!&ndash; Search for more types &#45;&#45;&ndash;&gt;-->
+<!--                  <div id="display_image">-->
+<!--                  <div class="add-image center">-->
+<!--                    <div class="line"></div>-->
+<!--                    <div class="line"></div>-->
+<!--                  </div>-->
+                  </div>
+                </div>
+<!--              </div>-->
       </div>
 
       <!-- TODO - Add color --->

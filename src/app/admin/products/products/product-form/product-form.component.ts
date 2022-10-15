@@ -35,7 +35,8 @@ export class ProductFormComponent implements OnInit {
       description: ['', [CustomValidations.notBlank, Validators.minLength(30), Validators.maxLength(5000)]],
       quantity: ['', [Validators.required, Validators.min(1), Validators.max(9999)]],
       price: ['', [Validators.required, Validators.min(0.1), Validators.max(9999)]],
-      type: ['', [Validators.required]]
+      type: ['', [Validators.required]],
+      image: ['']
     });
   }
 
